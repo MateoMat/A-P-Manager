@@ -1,1 +1,19 @@
-Hello World!
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    Hello World!
+    {{ app.user.username }}
+    {{ app.user.email }}
+
+    {% if app.user.roles[1] is defined %}
+        {{ app.user.roles[1] }}
+    {% endif %}
+
+    {% if app.user.roles[0] is defined %}
+        {{ app.user.roles[0] }}
+    {% endif %}
+    <a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+
+
+{% endblock %}

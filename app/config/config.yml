@@ -74,3 +74,5 @@ fos_user:
 easy_admin:
     entities:
         - APManagerBundle\Entity\User
+    design:
+            brand_color: '#8A2393'

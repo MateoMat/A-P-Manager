@@ -27,7 +27,7 @@
 !bin/symfony_requirements
 
 # Assets and user uploads
-/web/bundles/
+#/web/bundles/
 /web/uploads/
 
 # PHPUnit

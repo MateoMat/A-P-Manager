@@ -3,25 +3,14 @@
 {% block body %}
 
     <div class="container">
-        <a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
-        <br>
+        {{ parent() }}
+
 
         {% if app.user.roles[0]=="ROLE_ADMIN" %}
             <a href="{{ path('easyadmin') }}">Panel Administracyjny</a>
         {% endif %}
 
-        <div style="float: right">
-        <p>Jesteś zalogowany jako:</p>
-        <p>{{ app.user.email }}</p>
 
-
-    {% if app.user.roles[0] is defined %}
-        <p>Przypisana rola numer 0 :{{ app.user.roles[0] }}</p>
-    {% endif %}
-
-    {% if app.user.roles[1] is defined %}
-        <p>Przypisana rola numer 1 :{{ app.user.roles[1] }}</p>
-    {% endif %}
 
         </div>
 

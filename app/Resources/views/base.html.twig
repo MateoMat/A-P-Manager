@@ -92,13 +92,18 @@
                 </ul>
             </li>
 
+            {% if app.user.roles[0]=="ROLE_ADMIN" %}
             <li class="dropdown">
-                <a href="/repFinder" ><img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="" width="31px;">
-                    <span class="menu-item">A&P Manager</span>
+                <a class="shortcut tile" href="/admin">
+                    <img src="{{ asset('Main/img/shortcuts/money.png') }}" width="31px;">
+                    <span class="menu-item">A&P ADMIN</span>
                 </a>
+                <ul class="list-unstyled menu-item">
+                    <li><a href="{{ path('easyadmin') }}">Zarządzanie aplikacją</a></li>
 
+                </ul>
             </li>
-
+            {% endif %}
 
         </ul>
 
@@ -128,7 +133,7 @@
                 <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
                 <small class="t-overflow">Strona główna</small>
             </a>
-            <a class="shortcut tile" href="">
+            <a class="shortcut tile" href="{{ path('easyadmin') }}">
                 <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
                 <small class="t-overflow">A&P Manager</small>
             </a>
@@ -153,13 +158,11 @@
         </div>
 
         <hr class="whiter"/>
-        <button type="button" class="btn btn-default" aria-label="Left Align">
-            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-        </button>
+
 
 
         {% endblock %}
-        {% block body %}Hello {% endblock %}
+        {% block body %}{% endblock %}
         {% block javascripts %}
             <!-- Javascript Libraries -->
             <!-- jQuery -->

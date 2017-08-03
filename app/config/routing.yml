@@ -1,3 +1,4 @@
+
 ap_manager:
     resource: "@APManagerBundle/Controller/"
     type:     annotation

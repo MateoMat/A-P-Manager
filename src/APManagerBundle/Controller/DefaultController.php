@@ -10,7 +10,7 @@ use APManagerBundle\Entity\Pharmacy;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/",name="index")
+     * @Route("/",name="")
      */
     public function indexAction()
     {

@@ -1,14 +1,98 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ parent() }}
+
 
     <div class="container">
-        {{ parent() }}
 
 
-            <br>A&P Manager Main Page</h1>
+<h2 style="text-align: center;color:orange">A&P TOP VIEW DASHBOARD</h2>
+        <div class="tile text-center">
+            <div class="tile-dark p-10">
+                <H1>A&P Przydzielone</H1>
+                <br>
+                <div class="pie-chart-tiny" data-percent="34">
+                    <span class="percent"></span>
+                    <span class="pie-title">Total Σ<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="86">
+                    <span class="percent"></span>
+                    <span class="pie-title">Pharma 1<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="23">
+                    <span class="percent"></span>
+                    <span class="pie-title">Pharma 2<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="57">
+                    <span class="percent"></span>
+                    <span class="pie-title">Pharma 4<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
 
-    </div>
+            </div>
+        </div>
+
+        <div class="tile text-center">
+            <div class="tile-dark p-10">
+                <H1>A&P Zaplanowane</H1>
+                <br>
+                <div class="pie-chart-tiny" data-percent="84">
+                    <span class="percent"></span>
+                    <span class="pie-title">Total Σ<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="56">
+                    <span class="percent"></span>
+                    <span class="pie-title">Pharma 1<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="13">
+                    <span class="percent"></span>
+                    <span class="pie-title">Pharma 2<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="87">
+                    <span class="percent"></span>
+                    <span class="pie-title">Pharma 4<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tile text-center">
+            <div class="tile-dark p-10">
+                <H1>A&P Zaraportowane</H1>
+                <br>
+                <div class="pie-chart-tiny" data-percent="14">
+                    <span class="percent"></span>
+                    <span class="pie-title">Total Σ<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="6">
+                    <span class="percent"></span>
+                    <span class="pie-title">Bajorek<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="80">
+                    <span class="percent"></span>
+                    <span class="pie-title">Błaut<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="19">
+                    <span class="percent"></span>
+                    <span class="pie-title">Baranowski<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="33">
+                    <span class="percent"></span>
+                    <span class="pie-title">Sito<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="27">
+                    <span class="percent"></span>
+                    <span class="pie-title">Kukla<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+                <div class="pie-chart-tiny" data-percent="52">
+                    <span class="percent"></span>
+                    <span class="pie-title">Wakat<i class="m-l-5 fa fa-retweet"></i></span>
+                </div>
+
+            </div>
+        </div>
+
+
 
     </div>
 

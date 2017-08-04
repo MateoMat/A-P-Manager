@@ -61,7 +61,11 @@
 
 </header>
 
+{% if app.request.get('_route') == 'APManager' %}
 
+{% elseif app.request.get('_route') == 'index' %}
+
+{% endif %}
 
 
 <div class="clearfix"></div>
@@ -113,9 +117,9 @@
     <!-- Content -->
     <section id="content" class="container">
 
-        <!-- Messages Drawer -->
 
-        </div>
+
+
 
 
         <!-- Breadcrumb -->
@@ -129,14 +133,40 @@
 
         <!-- Shortcuts -->
         <div class="block-area shortcut-area">
-            <a class="shortcut tile" href="{{ path('index') }}">
-                <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
-                <small class="t-overflow">Strona główna</small>
-            </a>
-            <a class="shortcut tile" href="{{ path('APManager') }}">
-                <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
-                <small class="t-overflow">A&P Manager</small>
-            </a>
+
+            {% if app.request.get('_route') == 'index' %}
+
+                <a class="shortcut tile" href="{{ path('index') }}" style="background-color: lightgray">
+                    <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
+                    <small class="t-overflow" style="color: black"><b>Main Page</b></small>
+                </a>
+
+            {% else %}
+
+                <a class="shortcut tile" href="{{ path('index') }}">
+                    <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
+                    <small class="t-overflow">Main Page</small>
+                </a>
+
+            {% endif %}
+
+            {% if app.request.get('_route') == 'APManager' %}
+
+                <a class="shortcut tile" href="{{ path('APManager') }}" style="background-color: lightgray">
+                    <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
+                    <small class="t-overflow" style="color: black">A&P Manager</small>
+                </a>
+
+            {% else %}
+
+                <a class="shortcut tile" href="{{ path('APManager') }}">
+                    <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
+                    <small class="t-overflow">A&P Manager</small>
+                </a>
+
+            {% endif %}
+
+
             <a class="shortcut tile" href="http://platforma-trade.pl/app/View/LandingPage.php">
                 <img src="{{ asset('Main/img/shortcuts/pf.png') }}" alt="" style="height:45px;">
                 <small class="t-overflow">REP Finder</small>
@@ -156,6 +186,7 @@
             <p> Hurtownie (Sales Progress for R1): 14.07.2017 | IMS: brak | Farmaprom: 17.07.2017 </p>
 
         </div>
+
 
         <hr class="whiter"/>
 
@@ -202,5 +233,6 @@
             <script src="{{ asset('Main/js/functions.js') }}"></script>
 
         {% endblock %}
+
 </body>
 </html>

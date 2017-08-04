@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+{% block head %}
+    <head>
+        <meta charset="UTF-8" />
+        {% block stylesheets %}
+            <!-- CSS -->
+            <link href="{{ asset('Main/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('Main/css/animate.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('Main/css/font-awesome.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('Main/css/form.css') }}" rel="stylesheet">
+            <link href="{{ asset('Main/css/style.css') }}" rel="stylesheet">
+            <link href="{{ asset('Main/css/icons.css') }}" rel="stylesheet">
+            <link href="{{ asset('Main/css/generics.css') }}" rel="stylesheet">
+        {% endblock %}
+    </head>
+{% endblock %}
+
+{% block body %}
+
+    <body id="skin-blur-chrome">
+
+    <div class="container">
+
+        <section id="login">
+            <header>
+                <h1 style="color:orange">Valeant Analytics BiTRADE</h1>
+                <h3>Platforma Analityczna i Business Intelligence BU TRADE</h3>
+                </header>
+        </section>
+
+        <div class="container-fluid">
+
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="">
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="btn"/>
+                </label>
+
+                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}
+                    <input type="password" id="password" name="_password" required="required" class="btn"/>
+                </label>
+
+
+                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                </label>
+
+                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn"/>
+
+            </form>
+
+            <br>
+
+            {#Error message#}
+            {% if error %}
+                <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    </body>
+
+{% endblock %}
+
+{% block fos_user_content %}{% endblock fos_user_content %}
+
+{% block javascript %}
+    <script src="{{ asset('Main/js/jquery.min.js') }}"></script> <!-- jQuery Library -->
+    <script src="{{ asset('Main/js/bootstrap.min.js') }}"></script><!-- Bootstrap -->
+    <script src="{{ asset('Main/js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->
+    <script src="{{ asset('Main/js/functions.js') }}"></script><!-- All JS functions -->
+{% endblock %}
+
+</html>

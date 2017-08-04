@@ -10,7 +10,7 @@ use APManagerBundle\Entity\Pharmacy;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/",name="")
+     * @Route("/",name="index")
      */
     public function indexAction()
     {
@@ -21,4 +21,21 @@ class DefaultController extends Controller
 
         return $this->render('APManagerBundle:Default:index.html.twig');
     }
+
+    /**
+     * @Route("/APManager",name="APManager")
+     */
+    public function apManagerAction()
+    {
+
+
+
+
+
+        return $this->render('APManagerBundle:APManager:apManagerMain.html.twig');
+    }
+
+
+
+
 }

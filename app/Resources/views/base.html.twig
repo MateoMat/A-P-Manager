@@ -129,24 +129,24 @@
 
         <!-- Shortcuts -->
         <div class="block-area shortcut-area">
-            <a class="shortcut tile" href="">
+            <a class="shortcut tile" href="{{ path('index') }}">
                 <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
                 <small class="t-overflow">Strona główna</small>
             </a>
-            <a class="shortcut tile" href="{{ path('easyadmin') }}">
+            <a class="shortcut tile" href="{{ path('APManager') }}">
                 <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
                 <small class="t-overflow">A&P Manager</small>
             </a>
-            <a class="shortcut tile" href="">
+            <a class="shortcut tile" href="http://platforma-trade.pl/app/View/LandingPage.php">
                 <img src="{{ asset('Main/img/shortcuts/pf.png') }}" alt="" style="height:45px;">
                 <small class="t-overflow">REP Finder</small>
             </a>
-            <a class="shortcut tile" href="">
+            <a class="shortcut tile" href="https://www.farmaprom.pl/pl/">
                 <img src="{{ asset('Main/img/shortcuts/farmaprom.png') }}" alt="" style="height:45px;">
                 <small class="t-overflow">Farmaprom</small>
             </a>
 
-            <a class="shortcut tile" href="">
+            <a class="shortcut tile" href="http://10.233.36.244/DMSWWW/login.jspx?null">
                 <img src="{{ asset('Main/img/shortcuts/comarch.jpg') }}" alt="" style="height:45px;">
                 <small class="t-overflow">COMARCH</small>
             </a>
@@ -183,19 +183,19 @@
             <script src="{{ asset('Main/js/easypiechart.js') }}"></script> <!-- EasyPieChart - Animated Pie Charts -->
             <script src="{{ asset('Main/js/charts.js') }}"></script> <!-- All the above chart related functions -->
 
-                                                                     <!-- Map -->
-            <script src="{{ asset('Main/js/maps/jvectormap.min.js') }}"></script> <!-- jVectorMap main library -->
-            <script src="{{ asset('Main/js/maps/usa.js') }}"></script> <!-- USA Map for jVectorMap -->
+                                                                     {#<!-- Map -->#}
+            {#<script src="{{ asset('Main/js/maps/jvectormap.min.js') }}"></script> <!-- jVectorMap main library -->#}
+            {#<script src="{{ asset('Main/js/maps/usa.js') }}"></script> <!-- USA Map for jVectorMap -->#}
 
-                                                                       <!--  Form Related -->
-            <script src="{{ asset('Main/js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->
+                                                                       {#<!--  Form Related -->#}
+            {#<script src="{{ asset('Main/js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->#}
 
-                                                                     <!-- UX -->
-            <script src="{{ asset('Main/js/scroll.min.js') }}"></script> <!-- Custom Scrollbar -->
+                                                                     {#<!-- UX -->#}
+            {#<script src="{{ asset('Main/js/scroll.min.js') }}"></script> <!-- Custom Scrollbar -->#}
 
-                                                                         <!-- Other -->
-            <script src="{{ asset('Main/js/calendar.min.js') }}"></script> <!-- Calendar -->
-            <script src="{{ asset('Main/js/feeds.min.js') }}"></script> <!-- News Feeds -->
+                                                                         {#<!-- Other -->#}
+            {#<script src="{{ asset('Main/js/calendar.min.js') }}"></script> <!-- Calendar -->#}
+            {#<script src="{{ asset('Main/js/feeds.min.js') }}"></script> <!-- News Feeds -->#}
 
 
                                                                         <!-- All JS functions -->

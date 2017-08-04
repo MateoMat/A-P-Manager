@@ -1,17 +1,478 @@
-{% extends 'base.html.twig' %}
+{% extends "::base.html.twig" %}
+
+
 
 {% block body %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 
-    <div class="container">
-        {{ parent() }}
+    <p style="color: transparent">Strona główna</p>
+    <div class="container-fluid" style="margin-top: 30px;">
 
 
-        <br> <h1>A&P Manager Main Page</h1>
+        <!- first graph line   -->
+
+        <h2 class="mainH2Element">Realizacja planu Q3 2017 ( K PLN )</h2>
+        <div>
+
+            <canvas id="myChart4" height="50px" class="mainFrontBarTable"></canvas>
+
+
+            <script>
+                var ctx = document.getElementById("myChart4").getContext("2d");
+
+                var data = {
+                    labels: ["Wholesalers", "IMS", "Farmaprom"],
+                    datasets: [
+                        {
+                            label: "PLAN",
+                            backgroundColor: "rgba(110, 26, 128, 0.9)",
+                            data: [227934,126240,114295]
+                        },
+                        {
+                            label: "Sprzedaż",
+                            backgroundColor: "rgba(169, 169, 172, 1)",
+                            data: [8310,0,6006]
+                        },
+                        {
+                            label: "Realizacja",
+                            backgroundColor: "green",
+                            data: [0,0,0]
+                        }
+                    ]
+                };
+
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        barValueSpacing: 20,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max:240000,
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: true
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        animation: {
+                            duration: 500,
+                            easing: "easeOutQuart",
+                            onComplete: function () {
+                                var ctx = this.chart.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+
+                                this.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                                            scale_max = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
+                                        ctx.fillStyle = '#999999999';
+                                        var y_pos = model.y - 5;
+                                        // Make sure data value does not get overflown and hidden
+                                        // when the bar's value is too close to max value of scale
+                                        // Note: The y value is reverse, it counts from top down
+                                        if ((scale_max - model.y) / scale_max >= 0.93)
+                                            y_pos = model.y + 20;
+                                        ctx.fillText(dataset.data[i], model.x, y_pos);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            </script>
 
         </div>
 
+        <!- second graph line   -->
+
+        <h2 class="mainH2Element">Farmaprom Q3 2017 ( K PLN )</h2>
+        <div>
+
+            <canvas id="myChart6" height="50px" class="mainFrontBarTable"></canvas>
+
+
+            <script>
+                var ctx = document.getElementById("myChart6").getContext("2d");
+
+                var data = {
+                    labels: ["Total", "Tradittional", "Modern"],
+                    datasets: [
+                        {
+                            label: "PLAN",
+                            backgroundColor: "rgba(110, 26, 128, 0.9)",
+                            data: [114295,61274,52051]
+                        },
+                        {
+                            label: "Sprzedaż",
+                            backgroundColor: "rgba(169, 169, 172, 1)",
+                            data: [6006,4749,1256]
+                        },
+                        {
+                            label: "Realizacja",
+                            backgroundColor: "green",
+                            data: [0,0,0]
+                        }
+                    ]
+                };
+
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        barValueSpacing: 20,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max:116000,
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: true
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        animation: {
+                            duration: 500,
+                            easing: "easeOutQuart",
+                            onComplete: function () {
+                                var ctx = this.chart.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+
+                                this.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                                            scale_max = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
+                                        ctx.fillStyle = '#999999999';
+                                        var y_pos = model.y - 5;
+                                        // Make sure data value does not get overflown and hidden
+                                        // when the bar's value is too close to max value of scale
+                                        // Note: The y value is reverse, it counts from top down
+                                        if ((scale_max - model.y) / scale_max >= 0.93)
+                                            y_pos = model.y + 20;
+                                        ctx.fillText(dataset.data[i], model.x, y_pos);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            </script>
+
+        </div>
+
+        <!- third graph line   -->
+
+        <h2 class="mainH2Element">Relizacja planu IMS Q2 2017 Pharma 3</h2>
+        <div>
+
+            <canvas id="myChart2" height="50px" class="mainFrontBarTable"></canvas>
+            <script>
+                Chart.defaults.global.defaultFontColor = '#fff';
+                var ctx = document.getElementById("myChart2");
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+
+                        labels: ["NATIONAL","Grzegorz Zaręba", "Andrzej Muhmelt", "Jacek Matusewicz", "Marek Fojut", "Łukasz Berejowski", "Grzegorz Ryszkowski"],
+                        datasets: [{
+                            label: 'Procent realizacji planu',
+
+
+                            data: [87.2,82.9,88.0,85.1,87.4, 84.8, 86.3],
+
+                            backgroundColor: [
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)'
+
+                            ],
+                            borderColor: [
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)'
+                            ],
+                            borderWidth: 3,
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    steps: 10,
+                                    stepValue: 5,
+                                    max: 100,
+                                    fontColor: 'white'
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        animation: {
+                            duration: 500,
+                            easing: "easeOutQuart",
+                            onComplete: function () {
+                                var ctx = this.chart.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+
+                                this.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                                            scale_max = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
+                                        ctx.fillStyle = '#999999999';
+                                        var y_pos = model.y - 5;
+                                        // Make sure data value does not get overflown and hidden
+                                        // when the bar's value is too close to max value of scale
+                                        // Note: The y value is reverse, it counts from top down
+                                        if ((scale_max - model.y) / scale_max >= 0.93)
+                                            y_pos = model.y + 20;
+                                        ctx.fillText(dataset.data[i], model.x, y_pos);
+                                    }
+                                });
+                            }
+                        }
+
+                    }
+                });
+
+
+            </script>
+        </div>
+
+        <!- third graph line   -->
+
+
+        <h2 class="mainH2Element">Zestawienie 1</h2>
+        <div>
+
+            <canvas id="myChart" height="50px" class="mainFrontBarTable"></canvas>
+            <script>
+                Chart.defaults.global.defaultFontColor = '#fff';
+                var ctx = document.getElementById("myChart");
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+
+                        labels: ["NATIONAL","Grzegorz Zaręba", "Andrzej Muhmelt", "Jacek Matusewicz", "Marek Fojut", "Łukasz Berejowski", "Grzegorz Ryszkowski"],
+                        datasets: [{
+                            label: 'Procent realizacji planu',
+
+
+                            data: [50,30,40,50, 55, 65, 25],
+
+                            backgroundColor: [
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)'
+
+
+
+                            ],
+                            borderColor: [
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)'
+
+
+                            ],
+                            borderWidth: 3,
+
+                        }]
+                    },
+                    options: {
+
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    steps: 10,
+                                    stepValue: 5,
+                                    max: 100,
+                                    fontColor: 'white'
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        animation: {
+                            duration: 500,
+                            easing: "easeOutQuart",
+                            onComplete: function () {
+                                var ctx = this.chart.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+
+                                this.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                                            scale_max = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
+                                        ctx.fillStyle = '#999999999';
+                                        var y_pos = model.y - 5;
+                                        // Make sure data value does not get overflown and hidden
+                                        // when the bar's value is too close to max value of scale
+                                        // Note: The y value is reverse, it counts from top down
+                                        if ((scale_max - model.y) / scale_max >= 0.93)
+                                            y_pos = model.y + 20;
+                                        ctx.fillText(dataset.data[i], model.x, y_pos);
+                                    }
+                                });
+                            }
+                        }
+
+                    }
+                });
+
+
+            </script>
+        </div>
+
+
+
+
+
+        <!- fourth graph line   -->
+
+        <h2 class="mainH2Element">Zestawienie 3</h2>
+        <div>
+
+            <canvas id="myChart3" height="50px" class="mainFrontBarTable"></canvas>
+            <script>
+                Chart.defaults.global.defaultFontColor = '#fff';
+                var ctx = document.getElementById("myChart3");
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+
+                        labels: ["NATIONAL","Grzegorz Zaręba", "Andrzej Muhmelt", "Jacek Matusewicz", "Marek Fojut", "Łukasz Berejowski", "Grzegorz Ryszkowski"],
+                        datasets: [{
+                            label: 'Procent realizacji planu',
+
+
+                            data: [50,30,40,50, 55, 65, 25],
+
+                            backgroundColor: [
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(169, 169, 172, 1)'
+
+
+
+                            ],
+                            borderColor: [
+                                'rgba(169, 169, 172, 1)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)',
+                                'rgba(110, 26, 128, 0.9)'
+
+
+                            ],
+                            borderWidth: 3,
+
+                        }]
+                    },
+                    options: {
+
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    steps: 10,
+                                    stepValue: 5,
+                                    max: 100,
+                                    fontColor: 'white'
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        animation: {
+                            duration: 500,
+                            easing: "easeOutQuart",
+                            onComplete: function () {
+                                var ctx = this.chart.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+
+                                this.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                                            scale_max = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
+                                        ctx.fillStyle = '#999999999';
+                                        var y_pos = model.y - 5;
+                                        // Make sure data value does not get overflown and hidden
+                                        // when the bar's value is too close to max value of scale
+                                        // Note: The y value is reverse, it counts from top down
+                                        if ((scale_max - model.y) / scale_max >= 0.93)
+                                            y_pos = model.y + 20;
+                                        ctx.fillText(dataset.data[i], model.x, y_pos);
+                                    }
+                                });
+                            }
+                        }
+
+                    }
+                });
+
+
+            </script>
+        </div>
+
+
+
     </div>
 
-
 {% endblock %}
+
 

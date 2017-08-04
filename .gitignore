@@ -40,7 +40,7 @@
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
 /.idea/
-vendor/
-!vendor/friendsofsymfony
-!vendor/javiereguiluz
+/vendor/*
+!vendor/friendsofsymfony/
+!vendor/javiereguiluz/
 /nbproject/private/

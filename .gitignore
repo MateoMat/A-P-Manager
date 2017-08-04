@@ -41,4 +41,6 @@
 **/Entity/*~
 /.idea/
 /vendor/
+!vendor/friendsofsymfony
+!vendor/javiereguiluz
 /nbproject/private/

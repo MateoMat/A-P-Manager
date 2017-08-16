@@ -1,13 +1,233 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+    <!-- Page title -->
+    <title>Valeant Analytics</title>
+
+    <!-- CSS -->
+    {% block stylesheets %}
+        <link href="{{ asset('Main/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/animate.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/form.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/calendar.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('Main/css/generics.css') }}" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
+<body>
+
+{% block main %}
+<!-- page theme -->
+<body id="skin-blur-chrome">
+
+
+<header id="header" class="media">
+    <a href="" id="menu-toggle"></a>
+    <a class="logo pull-left" href="/"><span style="color:orange">Bi </span>TRADE</a>
+
+        {% block fos_user_content %}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+
+
+            {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                    <div class="{{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endblock fos_user_content %}
+
+    <img src="{{ asset('Main/img/valeant1.png') }}" style="float: right;padding: 5px;">
+
+</header>
+
+{% if app.request.get('_route') == 'APManager' %}
+
+{% elseif app.request.get('_route') == 'index' %}
+
+{% endif %}
+
+
+<div class="clearfix"></div>
+
+<section id="main" class="p-relative" role="main">
+
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+
+        <!-- Sidbar Widgets -->
+        <div class="side-widgets overflow">
+
+
+        </div>
+
+        <!-- Side Menu -->
+        <ul class="list-unstyled side-menu">
+            <li class="dropdown">
+                <a class="sa-side-form" href="/repFinder">
+                    <span class="menu-item">Baza klientów</span>
+                </a>
+                <ul class="list-unstyled menu-item">
+                    <li><a href="/repFinder">Baza aptek</a></li>
+                    <li><a href="form-components.html">Baza Przedstawicieli</a></li>
+                    <li><a href="form-components.html">Baza hurtowni</a></li>
+
+                </ul>
+            </li>
+
+            {% if app.user.roles[0]=="ROLE_ADMIN" %}
+            <li class="dropdown">
+                <a class="shortcut tile" href="/admin">
+                    <img src="{{ asset('Main/img/shortcuts/money.png') }}" width="31px;">
+                    <span class="menu-item">A&P ADMIN</span>
+                </a>
+                <ul class="list-unstyled menu-item">
+                    <li><a href="{{ path('easyadmin') }}">Zarządzanie aplikacją</a></li>
+
+                </ul>
+            </li>
+            {% endif %}
+
+        </ul>
+
+
+    </aside>
+
+    <!-- Content -->
+    <section id="content" class="container">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb hidden-xs">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+        </ol>
+
+        <hr class="whiter"/>
+
+        <!-- Shortcuts -->
+        <div class="block-area shortcut-area">
+
+            {% if app.request.get('_route') == 'index' %}
+
+                <a class="shortcut tile" href="{{ path('index') }}" style="background-color: lightgray">
+                    <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
+                    <small class="t-overflow" style="color: black"><b>Main Page</b></small>
+                </a>
+
+            {% else %}
+
+                <a class="shortcut tile" href="{{ path('index') }}">
+                    <img src="{{ asset('Main/img/shortcuts/bi.svg') }}" alt="">
+                    <small class="t-overflow">Main Page</small>
+                </a>
+
+            {% endif %}
+
+            {% if app.request.get('_route') == 'APManager' %}
+
+                <a class="shortcut tile" href="{{ path('APManager') }}" style="background-color: lightgray">
+                    <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
+                    <small class="t-overflow" style="color: black">A&P Manager</small>
+                </a>
+
+            {% else %}
+
+                <a class="shortcut tile" href="{{ path('APManager') }}">
+                    <img src="{{ asset('Main/img/shortcuts/money.png') }}" alt="">
+                    <small class="t-overflow">A&P Manager</small>
+                </a>
+
+            {% endif %}
+
+
+            <a class="shortcut tile" href="http://platforma-trade.pl/app/View/LandingPage.php">
+                <img src="{{ asset('Main/img/shortcuts/pf.png') }}" alt="" style="height:45px;">
+                <small class="t-overflow">REP Finder</small>
+            </a>
+            <a class="shortcut tile" href="https://www.farmaprom.pl/pl/">
+                <img src="{{ asset('Main/img/shortcuts/farmaprom.png') }}" alt="" style="height:45px;">
+                <small class="t-overflow">Farmaprom</small>
+            </a>
+
+            <a class="shortcut tile" href="http://10.233.36.244/DMSWWW/login.jspx?null">
+                <img src="{{ asset('Main/img/shortcuts/comarch.jpg') }}" alt="" style="height:45px;">
+                <small class="t-overflow">COMARCH</small>
+            </a>
+
+            <hr class="whiter"/>
+            <p>Aktualizacja danych:</p>
+            <p> Hurtownie (Sales Progress for R1): 4.08.2017 | IMS: brak | Farmaprom: 4.08.2017 </p>
+
+        </div>
+
+
+        <hr class="whiter"/>
+
+
+
+        {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+        {% block javascripts %}
+            <!-- Javascript Libraries -->
+            <!-- jQuery -->
+            <script src="{{ asset('Main/js/jquery.min.js') }}"></script> <!-- jQuery Library -->
+            <script src="{{ asset('Main/js/jquery-ui.min.js') }}"></script> <!-- jQuery UI -->
+            <script src="{{ asset('Main/js/jquery.easing.1.3.js') }}"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+                                                                                <!-- Bootstrap -->
+            <script src="{{ asset('Main/js/bootstrap.min.js') }}"></script>
+
+            <!-- Charts -->
+            <script src="{{ asset('Main/js/charts/jquery.flot.js') }}"></script> <!-- Flot Main -->
+            <script src="{{ asset('Main/js/charts/jquery.flot.time.js') }}"></script> <!-- Flot sub -->
+            <script src="{{ asset('Main/js/charts/jquery.flot.animator.min.js') }}"></script> <!-- Flot sub -->
+            <script src="{{ asset('Main/js/charts/jquery.flot.resize.min.js') }}"></script> <!-- Flot sub - for repaint when resizing the screen -->
+
+            <script src="{{ asset('Main/js/sparkline.min.js') }}"></script> <!-- Sparkline - Tiny charts -->
+            <script src="{{ asset('Main/js/easypiechart.js') }}"></script> <!-- EasyPieChart - Animated Pie Charts -->
+            <script src="{{ asset('Main/js/charts.js') }}"></script> <!-- All the above chart related functions -->
+
+                                                                     {#<!-- Map -->#}
+            {#<script src="{{ asset('Main/js/maps/jvectormap.min.js') }}"></script> <!-- jVectorMap main library -->#}
+            {#<script src="{{ asset('Main/js/maps/usa.js') }}"></script> <!-- USA Map for jVectorMap -->#}
+
+                                                                       {#<!--  Form Related -->#}
+            {#<script src="{{ asset('Main/js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->#}
+
+                                                                     {#<!-- UX -->#}
+            {#<script src="{{ asset('Main/js/scroll.min.js') }}"></script> <!-- Custom Scrollbar -->#}
+
+                                                                         {#<!-- Other -->#}
+            {#<script src="{{ asset('Main/js/calendar.min.js') }}"></script> <!-- Calendar -->#}
+            {#<script src="{{ asset('Main/js/feeds.min.js') }}"></script> <!-- News Feeds -->#}
+
+
+                                                                        <!-- All JS functions -->
+            <script src="{{ asset('Main/js/functions.js') }}"></script>
+
+        {% endblock %}
+
+</body>
 </html>

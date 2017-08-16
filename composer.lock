@@ -526,33 +526,33 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.2.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462"
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/e11d84c6e018beedd929cff5220969a3c6d1d462",
-                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.2"
+                "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
+                "psr-0": {
+                    "Doctrine\\Common\\Inflector\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -589,7 +589,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2017-07-22T12:18:28+00:00"
+            "time": "2015-11-06T14:35:42+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -937,16 +937,16 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.16.10",
+            "version": "v1.16.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "ce8b7e7549673be06b11154b4a24720b21389db2"
+                "reference": "58c241000610f90b37289e4bc16c3af7e4838a4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/ce8b7e7549673be06b11154b4a24720b21389db2",
-                "reference": "ce8b7e7549673be06b11154b4a24720b21389db2",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/58c241000610f90b37289e4bc16c3af7e4838a4d",
+                "reference": "58c241000610f90b37289e4bc16c3af7e4838a4d",
                 "shasum": ""
             },
             "require": {
@@ -957,22 +957,22 @@
                 "pagerfanta/pagerfanta": "~1.0,>=1.0.1",
                 "php": ">=5.3.0",
                 "sensio/framework-extra-bundle": "~2.3|~3.0,>=3.0.2",
-                "symfony/asset": "~2.3|~3.0",
-                "symfony/config": "~2.3|~3.0",
-                "symfony/dependency-injection": "~2.3|~3.0",
-                "symfony/doctrine-bridge": "~2.3|~3.0",
-                "symfony/event-dispatcher": "~2.3|~3.0",
-                "symfony/form": "~2.3|~3.0",
-                "symfony/framework-bundle": "~2.3|~3.0",
-                "symfony/http-foundation": "~2.3|~3.0",
-                "symfony/http-kernel": "~2.3|~3.0",
+                "symfony/asset": "~2.3|~3.0|~4.0",
+                "symfony/config": "~2.3|~3.0|~4.0",
+                "symfony/dependency-injection": "~2.3|~3.0|~4.0",
+                "symfony/doctrine-bridge": "~2.3|~3.0|~4.0",
+                "symfony/event-dispatcher": "~2.3|~3.0|~4.0",
+                "symfony/form": "~2.3|~3.0|~4.0",
+                "symfony/framework-bundle": "~2.3|~3.0|~4.0",
+                "symfony/http-foundation": "~2.3|~3.0|~4.0",
+                "symfony/http-kernel": "~2.3|~3.0|~4.0",
                 "symfony/polyfill-mbstring": "^1.0",
-                "symfony/property-access": "~2.3|~3.0",
-                "symfony/security-bundle": "~2.3|~3.0",
-                "symfony/translation": "~2.3|~3.0",
-                "symfony/twig-bridge": "^2.3.4|~3.0",
-                "symfony/twig-bundle": "~2.3|~3.0",
-                "symfony/validator": "~2.3|~3.0",
+                "symfony/property-access": "~2.3|~3.0|~4.0",
+                "symfony/security-bundle": "~2.3|~3.0|~4.0",
+                "symfony/translation": "~2.3|~3.0|~4.0",
+                "symfony/twig-bridge": "^2.3.4|~3.0|~4.0",
+                "symfony/twig-bundle": "~2.3|~3.0|~4.0",
+                "symfony/validator": "~2.3|~3.0|~4.0",
                 "twig/extensions": "~1.0",
                 "twig/twig": "~1.14,>=1.14.2|~2.0"
             },
@@ -1024,7 +1024,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2017-05-29T19:24:46+00:00"
+            "time": "2017-08-05T14:14:12+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -2179,16 +2179,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.8.25",
+            "version": "v2.8.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "c2452af5659d0492a43268c389bb211295c5e4c9"
+                "reference": "33553101754e0888a1a1fecc46d7a7f10f6f9580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/c2452af5659d0492a43268c389bb211295c5e4c9",
-                "reference": "c2452af5659d0492a43268c389bb211295c5e4c9",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/33553101754e0888a1a1fecc46d7a7f10f6f9580",
+                "reference": "33553101754e0888a1a1fecc46d7a7f10f6f9580",
                 "shasum": ""
             },
             "require": {
@@ -2313,7 +2313,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-07-17T18:00:19+00:00"
+            "time": "2017-08-01T09:05:29+00:00"
         },
         {
             "name": "twig/extensions",
@@ -2373,21 +2373,20 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.3",
+            "version": "v1.34.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2"
+                "reference": "f878bab48edb66ad9c6ed626bf817f60c6c096ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eab7c3288ae6603d7d6f92b531626af2b162d1f2",
-                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f878bab48edb66ad9c6ed626bf817f60c6c096ee",
+                "reference": "f878bab48edb66ad9c6ed626bf817f60c6c096ee",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
-                "symfony/polyfill-mbstring": "~1.0"
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -2397,7 +2396,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "1.34-dev"
                 }
             },
             "autoload": {
@@ -2435,7 +2434,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-07T18:47:58+00:00"
+            "time": "2017-07-04T13:19:31+00:00"
         }
     ],
     "packages-dev": [
@@ -2495,7 +2494,7 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v2.8.25",
+            "version": "v2.8.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
